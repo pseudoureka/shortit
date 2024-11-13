@@ -8,7 +8,10 @@ export default async function handler(req, res) {
 
   switch (req.method) {
     case "PATCH":
-      res.status(201).send(id);
+      const updatedShortLink = await ShortLink.findByIdAndUpdate(id, req.body, {
+        new: true,
+      });
+      res.status(201).send(updatedShortLink);
       break;
 
     case "GET":
