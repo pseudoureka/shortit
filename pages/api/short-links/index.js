@@ -1,5 +1,6 @@
 import dbConnect from "@/db/dbConnect";
 import ShortLink from "@/db/models/ShortLink";
+import mongoose from "mongoose";
 
 export default async function handler(req, res) {
   await dbConnect();
@@ -7,25 +8,13 @@ export default async function handler(req, res) {
 
   switch (req.method) {
     case "POST":
-      res.status(201).send({
-        title: "네이버",
-        url: "https://www.naver.com",
-      });
+      const newShortLink = await ShortLink.create(req.body);
+      res.status(201).send(newShortLink);
       break;
 
     case "GET":
-      res.send([
-        {
-          id: "1",
-          title: "다음",
-          url: "https://www.daum.net",
-        },
-        {
-          id: "2",
-          title: "구글",
-          url: "https://www.google.com",
-        },
-      ]);
+      const shortLinks = await ShortLink.find();
+      res.send(shortLinks);
       break;
 
     default:
