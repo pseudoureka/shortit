@@ -1,4 +1,5 @@
 import dbConnect from "@/db/dbConnect";
+import QRCode from "@/db/models/QRCode";
 
 export default async function handler(req, res) {
   await dbConnect();
@@ -9,6 +10,8 @@ export default async function handler(req, res) {
       break;
 
     case "GET":
+      const props = Object.keys(QRCode.schema.paths);
+      console.log(props);
       res.send([
         {
           id: "abc",
