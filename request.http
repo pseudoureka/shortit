@@ -5,8 +5,8 @@ POST http://localhost:3000/api/short-links
 Content-Type: application/json
 
 {
-  "title": "google",
-  "url" : "https://www.google.com"
+  "title": "alsiehfli",
+  "url" : "https://www.awefawef.com"
 }
 
 ###
@@ -29,6 +29,7 @@ Content-Type: application/json
 }
 ###
 
+DELETE http://localhost:3000/api/short-links/6734b43999da7cfd1eb43d01
 
 // qrcodes 리퀘스트
 

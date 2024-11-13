@@ -20,7 +20,8 @@ export default async function handler(req, res) {
       break;
 
     case "DELETE":
-      res.status(204).send(id);
+      const deleteShortLink = await ShortLink.findByIdAndDelete(id);
+      res.status(204).send(deleteShortLink);
       return;
 
     default:
