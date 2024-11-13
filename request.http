@@ -20,6 +20,12 @@ GET http://localhost:3000/api/short-links/123
 
 
 POST http://localhost:3000/api/qrcodes
+Content-Type: application/json
+
+{
+  "title": "위키피디아 Next.js",
+  "url": "https://en.wikipedia.org/wiki/Next.js"
+}
 
 ###
 
@@ -35,4 +41,14 @@ GET http://localhost:3000/api/qrcodes/123
 
 ###
 
-PATCH http://localhost:3000/api/qrcodes/123
+PATCH http://localhost:3000/api/qrcodes/abc
+Content-Type: application/json
+
+{
+  "title": "위키피디아 Next.js",
+  "url": "https://en.wikipedia.org/wiki/Next.js"
+}
+
+###
+
+POST http://localhost:3000/api/qrcodes/abc

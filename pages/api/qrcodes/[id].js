@@ -7,10 +7,17 @@ export default function handler(req, res) {
       break;
 
     case "PATCH":
-      res.send(id, {
-        title: "위키피디아 Next.js",
-        url: "https://en.wikipedia.org/wiki/Next.js",
+      res.send({
+        ...req.body,
+        id,
       });
       break;
+
+    case "DELETE":
+      res.status(204).send();
+      break;
+
+    default:
+      res.status(404).send();
   }
 }

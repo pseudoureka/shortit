@@ -1,10 +1,7 @@
 export default function handler(req, res) {
   switch (req.method) {
     case "POST":
-      res.status(201).send({
-        title: "위키피디아 Next.js",
-        url: "https://en.wikipedia.org/wiki/Next.js",
-      });
+      res.status(201).send(req.body);
       break;
 
     case "GET":
