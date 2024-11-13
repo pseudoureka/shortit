@@ -2,8 +2,8 @@ POST http://localhost:3000/api/short-links
 Content-Type: application/json
 
 {
-  "title":"codeit",
-  "url" : "https://codeit.kr"
+  "title":"daum",
+  "url" : "https://www.daum.net"
 
 }
 
@@ -14,11 +14,25 @@ GET  http://localhost:3000/api/short-links/673426190918a8e6cb8e7679
 
 ###
 
-GET http://localhost:3000/api/short-links/123
+GET http://localhost:3000/api/short-links/
 
 
 ###
 
+DELETE  http://localhost:3000/api/short-links/673427140918a8e6cb8e767c
+
+###
+
+
+PATCH   http://localhost:3000/api/short-links/673465bd43db71003d06cbb5
+Content-Type: application/json
+
+{
+  "title":"daum",
+  "url":"www.daum.com"
+}
+
+###
 
 GET http://localhost:3000/api/short-links/123
 Cookie: session-id=codeit123

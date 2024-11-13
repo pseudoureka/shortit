@@ -7,7 +7,10 @@ export default async function handler(req, res) {
 
   switch (req.method) {
     case "PATCH":
-      res.send("ShortLink 수정");
+      const updatedShortLink = await ShortLink.findByIdAndUpdate(id, req.body, {
+        new: true,
+      });
+      res.send(updatedShortLink);
       break;
 
     case "GET":
@@ -15,8 +18,9 @@ export default async function handler(req, res) {
       res.send(shortLink);
       break;
 
-    case "POST":
-      res.send("ShortLink 생성");
+    case "DELETE":
+      await ShortLink.findByIdAndDelete(id);
+      res.status(204).send();
       break;
 
     default:
