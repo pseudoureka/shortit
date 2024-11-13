@@ -1,4 +1,5 @@
 import dbConnect from "@/db/dbConnect";
+import ShortLink from "@/db/models/ShortLink";
 
 export default async function handler(req, res) {
   await dbConnect();
@@ -11,7 +12,8 @@ export default async function handler(req, res) {
       break;
 
     case "GET":
-      res.send(id);
+      const shortLink = await ShortLink.findById(id);
+      res.send(shortLink);
       break;
 
     case "DELETE":

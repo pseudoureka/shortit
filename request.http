@@ -5,17 +5,17 @@ POST http://localhost:3000/api/short-links
 Content-Type: application/json
 
 {
-  "title": "naver",
-  "url" : "https://www.naver.com"
+  "title": "google",
+  "url" : "https://www.google.com"
 }
 
 ###
 
-GET http://localhost:3000/api/short-links
+GET http://localhost:3000/api/short-links/6734ad0d99da7cfd1eb43cf9
 
 ###
 
-GET http://localhost:3000/api/short-links/123
+GET http://localhost:3000/api/short-links
 
 
 ###
