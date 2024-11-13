@@ -1,4 +1,8 @@
-export default function handler(req, res) {
+import dbConnect from "@/db/dbConnect";
+
+export default async function handler(req, res) {
+  await dbConnect();
+
   switch (req.method) {
     case "POST":
       res.status(201).send(req.body);

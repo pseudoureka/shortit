@@ -1,4 +1,8 @@
-export default function handler(req, res) {
+import dbConnect from "@/db/dbConnect";
+
+export default async function handler(req, res) {
+  await dbConnect();
+
   const { id } = req.query;
 
   switch (req.method) {
