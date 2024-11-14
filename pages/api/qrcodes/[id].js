@@ -1,4 +1,5 @@
 import dbConnect from "@/db/dbConnect";
+import QRCode from "@/db/models/QRCode";
 
 export default async function handler(req, res) {
   await dbConnect();
@@ -7,18 +8,20 @@ export default async function handler(req, res) {
 
   switch (req.method) {
     case "GET":
-      res.send(id);
+      const qrCode = await QRCode.findById(id);
+      res.send(qrCode);
       break;
 
     case "PATCH":
-      res.send({
-        ...req.body,
-        id,
+      const updatedQrCode = await QRCode.findByIdAndUpdate(id, req.body, {
+        new: true,
       });
+      res.send(updatedQrCode);
       break;
 
     case "DELETE":
-      res.status(204).send();
+      const deleteQrCode = await QRCode.findByIdAndDelete(id);
+      res.status(204).send(deleteQrCode);
       break;
 
     default:

@@ -5,8 +5,8 @@ POST http://localhost:3000/api/short-links
 Content-Type: application/json
 
 {
-  "title": "alsiehfli",
-  "url" : "https://www.awefawef.com"
+  "title": "코드잇 커뮤니티",
+  "url" : "https://www.cdeit.kr/community/general"
 }
 
 ###
@@ -31,16 +31,24 @@ Content-Type: application/json
 
 DELETE http://localhost:3000/api/short-links/6734b43999da7cfd1eb43d01
 
+
+
+
+
+
+
+
+
 // qrcodes 리퀘스트
 
-
+###
 
 POST http://localhost:3000/api/qrcodes
 Content-Type: application/json
 
 {
-  "title": "위키피디아 Next.js",
-  "url": "https://en.wikipedia.org/wiki/Next.js"
+  "title": "코드잇",
+  "url" : "https://www.cdeit.kr"
 }
 
 ###
@@ -49,22 +57,14 @@ GET http://localhost:3000/api/qrcodes
 
 ###
 
-PATCH  http://localhost:3000/api/qrcodes
-
-###
-
-GET http://localhost:3000/api/qrcodes/123
-
-###
-
-PATCH http://localhost:3000/api/qrcodes/abc
+PATCH  http://localhost:3000/api/qrcodes/6735742f8c1c15f2adcf49d2
 Content-Type: application/json
 
 {
-  "title": "위키피디아 Next.js",
-  "url": "https://en.wikipedia.org/wiki/Next.js"
+  "title": "코드잇 커뮤니티 - 수정",
+  "url": "https://www.codeit.kr/community/general"
 }
 
 ###
 
-POST http://localhost:3000/api/qrcodes/abc
+DELETE  http://localhost:3000/api/qrcodes/6735742f8c1c15f2adcf49d2
