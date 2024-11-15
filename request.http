@@ -47,8 +47,8 @@ POST http://localhost:3000/api/qrcodes
 Content-Type: application/json
 
 {
-  "title": "코드잇",
-  "url" : "https://www.cdeit.kr"
+  "title": "네이버 ",
+  "url" : "https://www.naver.com"
 }
 
 ###
