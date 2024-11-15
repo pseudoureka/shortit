@@ -1,6 +1,6 @@
-import Head from 'next/head';
-import QRCodeForm from '@/components/QRCodeForm';
-import styles from '@/styles/QRCodeCreatePage.module.css';
+import Head from "next/head";
+import QRCodeForm from "@/components/QRCodeForm";
+import styles from "@/styles/QRCodeCreatePage.module.css";
 
 export default function QRCodeCreatePage() {
   return (
