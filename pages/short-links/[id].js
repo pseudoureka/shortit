@@ -4,13 +4,14 @@ import styles from "@/styles/ShortLinkEditPage.module.css";
 import axios from "@/lib/axios";
 import dbConnect from "@/db/dbConnect";
 import ShortLink from "@/db/models/ShortLink";
-import { notFound } from "next/navigation";
 import { useRouter } from "next/router";
+import { notFound } from "next/navigation";
 
 export async function getServerSideProps(context) {
   await dbConnect();
 
   const { id } = context.query;
+
   const shortLink = await ShortLink.findById(id);
   if (shortLink) {
     return {

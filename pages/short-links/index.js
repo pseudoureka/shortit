@@ -22,6 +22,7 @@ export async function getServerSideProps() {
 
 export default function ShortLinkListPage({ shortLinks: initialShortLinks }) {
   const [shortLinks, setShortLinks] = useState(initialShortLinks);
+
   const handleDelete = async (id) => {
     axios.delete(`/short-links/${id}`);
     setShortLinks((prevShortLinks) => prevShortLinks.filter((shortLink) => shortLink._id !== id));
