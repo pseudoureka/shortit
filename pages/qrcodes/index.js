@@ -5,6 +5,8 @@ import Link from "@/components/Link";
 import styles from "@/styles/QRCodeListPage.module.css";
 import dbConnect from "@/db/dbConnect";
 import QRCode from "@/db/models/QRCode";
+import { useState } from "react";
+import axios from "@/lib/axios";
 
 export async function getServerSideProps() {
   await dbConnect();
@@ -18,7 +20,14 @@ export async function getServerSideProps() {
   };
 }
 
-export default function QRCodeListPage({ qrCodes }) {
+export default function QRCodeListPage({ qrCodes: initialQrCodes }) {
+  const [qrCodes, setQrCodes] = useState(initialQrCodes);
+
+  const handleDelete = async (id) => {
+    axios.delete(`/qrcodes/${id}`);
+    setQrCodes((prevQrCodes) => prevQrCodes.filter((qrcode) => qrcode._id !== id));
+  };
+
   return (
     <>
       <Head>
@@ -31,7 +40,7 @@ export default function QRCodeListPage({ qrCodes }) {
             새로 만들기
           </Button>
         </header>
-        <QRCodeList items={qrCodes} />
+        <QRCodeList items={qrCodes} onDelete={handleDelete} />
       </div>
     </>
   );
